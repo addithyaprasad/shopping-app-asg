@@ -47,13 +47,6 @@ docker compose up --build
 - Frontend: `http://localhost:8080`
 - API health: `http://localhost:8081/health`
 
-### 3) Run backend tests locally
-
-```bash
-cd backend
-npm install
-npm test
-```
 
 ## Environment variables
 
