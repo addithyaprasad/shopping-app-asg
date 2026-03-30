@@ -1,0 +1,12 @@
+Application Load Balancer listener example
+
+443 HTTPS listener:
+- Rule priority 10:
+  Path pattern: /api/*
+  Forward to: backend-target-group
+- Default action:
+  Forward to: frontend-target-group
+
+Target group health checks
+- frontend-target-group: HTTP / on port 80
+- backend-target-group: HTTP /health on port 8081
