@@ -8,7 +8,10 @@ const pool = new pg.Pool({
   password: process.env.DB_PASSWORD,
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 5000
+  connectionTimeoutMillis: 5000,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 export async function query(text, params = []) {
