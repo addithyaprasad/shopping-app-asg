@@ -9,12 +9,20 @@ export function createApp({ query, healthCheck, allowedOrigin = "*" }) {
   app.use(cors({ origin: allowedOrigin }));
   app.use(express.json());
 
-  app.get("/health", async (_req, res) => {
+ /* app.get("/health", async (_req, res) => {
     try {
       await healthCheck();
       res.json({ ok: true, service: "backend", timestamp: new Date().toISOString() });
     } catch {
       res.status(500).json({ ok: false, error: "database_unreachable" });
+    }
+  });*/
+  app.get("/health", async (req, res) => {
+    try {
+      await healthCheck();
+      res.json({ ok: true });
+    } catch (err) {
+      res.json({ ok: false, error: "db_unreachable" });
     }
   });
 
