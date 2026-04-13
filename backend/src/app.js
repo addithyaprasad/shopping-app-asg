@@ -17,13 +17,8 @@ export function createApp({ query, healthCheck, allowedOrigin = "*" }) {
       res.status(500).json({ ok: false, error: "database_unreachable" });
     }
   });*/
-  app.get("/health", async (req, res) => {
-    try {
-      await healthCheck();
-      res.json({ ok: true });
-    } catch (err) {
-      res.json({ ok: false, error: "db_unreachable" });
-    }
+  app.get("/health", (req, res) => {
+    res.status(200).json({ ok: true });
   });
 
   app.get("/api/products", async (req, res) => {
