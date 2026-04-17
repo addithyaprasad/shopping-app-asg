@@ -1,4 +1,4 @@
-import http from "k6/http";
+/*import http from "k6/http";
 import { check, sleep } from "k6";
 
 export const options = {
@@ -17,5 +17,32 @@ export default function () {
   check(res, {
     "status is 200": (r) => r.status === 200
   });
+  sleep(1);
+}*/
+import http from 'k6/http';
+import { sleep, check } from 'k6';
+
+export const options = {
+  stages: [
+    { duration: '2m', target: 50 },   // ramp up
+    { duration: '5m', target: 50 },   // steady load
+    { duration: '2m', target: 0 },    // ramp down
+  ],
+};
+
+export default function () {
+  const res = http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/');
+
+  http.get('http://http://shop-alb-1467212189.us-east-1.elb.amazonaws.com//');              // homepage
+  sleep(1);
+
+  http.get('http://http://shop-alb-1467212189.us-east-1.elb.amazonaws.com//api/products');  // backend call
+  sleep(1);
+
+
+  check(res, {
+    'status is 200': (r) => r.status === 200,
+  });
+
   sleep(1);
 }
