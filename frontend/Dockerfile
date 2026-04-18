@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-ARG VITE_API_BASE_URL=http://localhost:8081
+ARG VITE_API_BASE_URL=http://shop-alb-1467212189.us-east-1.elb.amazonaws.com
 ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 RUN npm run build
 
