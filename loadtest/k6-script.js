@@ -33,16 +33,12 @@ export const options = {
 export default function () {
   const res = http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/');
 
-  http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com//');              // homepage
-  sleep(1);
+  http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/');              // homepage
 
-  http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com//api/products');  // backend call
-  sleep(1);
-
-
+  http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/api/products');  // backend call
+  
   check(res, {
     'status is 200': (r) => r.status === 200,
   });
 
-  sleep(1);
 }
