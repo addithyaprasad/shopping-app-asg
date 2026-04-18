@@ -24,8 +24,8 @@ import { sleep, check } from 'k6';
 
 export const options = {
   stages: [
-    { duration: '2m', target: 50 },   // ramp up
-    { duration: '5m', target: 50 },   // steady load
+    { duration: '2m', target: 100 },   // ramp up
+    { duration: '5m', target: 500 },   // steady load
     { duration: '2m', target: 0 },    // ramp down
   ],
 };
