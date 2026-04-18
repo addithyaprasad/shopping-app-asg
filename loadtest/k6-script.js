@@ -33,6 +33,9 @@ export const options = {
 };
 
 export default function () {
+
+  http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/');
+
   for (let i = 0; i < 5; i++) {
     http.get('http://shop-alb-1467212189.us-east-1.elb.amazonaws.com/api/products');
   }
