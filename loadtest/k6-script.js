@@ -28,7 +28,7 @@ export const options = {
     { duration: '5m', target: 500 },   // steady load
     { duration: '2m', target: 0 },    // ramp down
   ],*/
-  vus: 300,
+  vus: 500,
   duration: '8m',
 };
 
