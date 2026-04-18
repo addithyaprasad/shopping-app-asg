@@ -29,7 +29,7 @@ export const options = {
     { duration: '2m', target: 0 },    // ramp down
   ],*/
   vus: 1000,
-  duration: '8m',
+  duration: '6m',
 };
 
 export default function () {
